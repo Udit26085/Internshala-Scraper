@@ -71,93 +71,9 @@ class Internshala {
             throw new Error(`An error occurred while scraping internships: ${error.message}`);
         }
     }
-
-    // async jobs() {
-    //     try {
-    //         this.search_type = this.search_type.replace(' ', '%20');
-    //         const url = `${this.base_url}jobs/keywords-${this.search_type}`;
-    //         const html = await this.__scrape_page(url);
-    //         const page = this.__parse_page(html);
-    //         const jobs = [];
-
-    //         const jobs_container = page('#internship_list_container_1');
-
-    //         if (!jobs_container.text()) {
-    //             return { message: 'No jobs found' };
-    //         } else {
-    //             jobs_container.find('.container-fluid.individual_internship.visibilityTrackerItem').each((index, item) => {
-    //                 const title = page(item).find('.heading_4_5.profile').text().trim();
-    //                 const company = page(item).find('.heading_6.company_name').text().trim();
-    //                 const location = page(item).find('p#location_names').text().trim();
-    //                 const ctc = page(item).find('.item_body.salary').text().trim();
-    //                 const experience = page(item).find('.item_body.desktop-text').text().trim().split(' ')[0];
-
-    //                 const job_data = {
-    //                     title,
-    //                     company,
-    //                     location,
-    //                     CTC: ctc,
-    //                     'experience(in years)': experience,
-    //                 };
-
-    //                 jobs.push(job_data);
-    //             });
-
-    //             return {
-    //                 data: jobs,
-    //                 message: 'Jobs are now fetched',
-    //             };
-    //         }
-    //     } catch (error) {
-    //         throw new Error(`An error occurred while scraping jobs: ${error.message}`);
-    //     }
-    // }
-
-    // async certification_courses() {
-    //     try {
-    //         const url = this.base_url;
-    //         const html = await this.__scrape_page(url);
-    //         const page = this.__parse_page(html);
-    //         const certification_courses = [];
-
-    //         const certification_section = page('.certification-trainings-section');
-
-    //         if (certification_section.length) {
-    //             certification_section.find('.card').each((index, card) => {
-    //                 const title_element = page(card).find('h6');
-    //                 const duration_element = page(card).find('span.duration');
-    //                 const rating_element = page(card).find('span.rating');
-    //                 const learners_element = page(card).find('span.learners');
-    //                 const link_element = page(card).find('a');
-
-    //                 const title = title_element.text().trim()
-    //                 const duration = duration_element.text().trim()
-    //                 const rating = rating_element.text().trim()
-    //                 const learners = learners_element.text().trim()
-    //                 const link = link_element.attr('href');
-
-    //                 const certification_data = {
-    //                     title,
-    //                     duration,
-    //                     rating,
-    //                     learners,
-    //                     link,
-    //                     };
-    //                     certification_courses.push(certification_data);
-                    
-    //             });
-
-    //             return certification_courses;
-    //         } else {
-    //             return null;
-    //         }
-    //     } catch (error) {
-    //         return null;
-    //     }
-    // }
 }
-// Example usage:
-const search = new Internshala('web development');
+// Example usage: Insert the role you're looking for in the function
+const search = new Internshala('');
 search.internships()
     .then(result => console.log(result))
     .catch(error => console.error(error));
