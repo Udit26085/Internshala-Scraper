@@ -53,13 +53,16 @@ class Internshala {
                         Company,
                         Role,
                         Link,
-                        Posted,
                         Location,
                         Duration,
                         Stipend,
+                        Posted, 
                     };
                     
-                    internships.push(internship_data);
+
+                    if(Posted == 'Few hours ago' || Posted == 'Today' || Posted == 'Just now'){ 
+                        internships.push(internship_data);
+                    }
                 });
 
                 return {
